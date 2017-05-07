@@ -62,22 +62,6 @@ struct UnitProduct {
                      UNIT1::LIV  + UNIT2::LIV>;
 };
 
-
-
-template <class TYPE> using Length                  = Value<TYPE, 1, 0, 0, 0, 0, 0, 0>;
-template <class TYPE> using Mass                    = Value<TYPE, 0, 1, 0, 0, 0, 0, 0>;
-template <class TYPE> using Time                    = Value<TYPE, 0, 0, 1, 0, 0, 0, 0>;
-template <class TYPE> using ElectrictCurrent        = Value<TYPE, 0, 0, 0, 1, 0, 0, 0>;
-template <class TYPE> using TermodynamicTemperature = Value<TYPE, 0, 0, 0, 0, 1, 0, 0>;
-template <class TYPE> using AmountOfSubstance       = Value<TYPE, 0, 0, 0, 0, 0, 1, 0>;
-template <class TYPE> using LuminosityIntensity     = Value<TYPE, 0, 0, 0, 0, 0, 0, 1>;
-
-template <class TYPE> using Frequency    = Value<TYPE, 0,  0, -1, 0, 0, 0, 0>;
-template <class TYPE> using Velocity     = typename UnitRatio<Length<TYPE>, Time<TYPE>>::type;
-template <class TYPE> using Acceleration = typename UnitRatio<Velocity<TYPE>, Time<TYPE>>::type;
-
-
-
 template <class UNIT1, class UNIT2>
 auto operator*(const UNIT1& aLeft, const UNIT2& aRight) {
   static_assert( std::is_same<typename UNIT1::type, typename UNIT2::type>::value );
