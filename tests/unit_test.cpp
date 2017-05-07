@@ -12,7 +12,26 @@
 
 #include "catch.hpp"
 
-TEST_CASE("First test", "[first test]") {
+TEST_CASE("instantiations", "[units]") {
+  REQUIRE( sizeof(uns::DimensionLess<float>)           == sizeof(float));
+  REQUIRE( sizeof(uns::Length<float>)                  == sizeof(float));
+  REQUIRE( sizeof(uns::Mass<float>)                    == sizeof(float));
+  REQUIRE( sizeof(uns::Time<float>)                    == sizeof(float));
+  REQUIRE( sizeof(uns::ElectrictCurrent<float>)        == sizeof(float));
+  REQUIRE( sizeof(uns::TermodynamicTemperature<float>) == sizeof(float));
+  REQUIRE( sizeof(uns::AmountOfSubstance<float>)       == sizeof(float));
+  REQUIRE( sizeof(uns::LuminosityIntensity<float>)     == sizeof(float));
+
+  REQUIRE( sizeof(uns::Frequency<float>)    == sizeof(float));
+  REQUIRE( sizeof(uns::Velocity<float>)     == sizeof(float));
+  REQUIRE( sizeof(uns::Acceleration<float>) == sizeof(float));
+  REQUIRE( sizeof(uns::Jerk<float>)         == sizeof(float));
+  REQUIRE( sizeof(uns::Jolt<float>)         == sizeof(float));
+  REQUIRE( sizeof(uns::Surge<float>)        == sizeof(float));
+  REQUIRE( sizeof(uns::Lurch<float>)        == sizeof(float));
+}
+
+TEST_CASE("Simple operations", "[units]") {
   uns::Length<float>   myLength(3.0);
 
   REQUIRE( sizeof(float) == sizeof(myLength));
